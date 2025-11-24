@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reece Mitchell - CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(3deg, #0c7c9e 0%, #478baa 100%);
+        color: #1c1c1c;
+        padding: 40px 40px;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 24px;
+        background-color: #ffffff;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        border-radius: 16px;
+        position: relative;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+    }
+
+    .header-line {
+        flex: 1;
+        height: 2px;
+        background-color: #328b8b;
+        margin: 0 15px;
+    }
+
+    .header-dot {
+        /* Adjusted width/height to make room for the 2px border */
+        width: 12px;
+        height: 12px;
+        /* Removed fill color */
+        background-color: transparent; 
+        /* Added the border */
+        border: 3px solid #328b8b;
+        border-radius: 80%;
+        margin: 0 0px;
+    }
+
+
+    .header-left {
+        flex: 1;
+    }
+    .header-right {
+        margin-left: 30px;
+    }
+    .profile-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #328b8b;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    h1 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #1c1c1c;
+        letter-spacing: -0.5px;
+    }
+    .tagline {
+        font-size: 16px;
+        color: #328b8b;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    .contact {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+    }
+    .contact-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+    a {
+        color: #328b8b;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    a:hover {
+        color: #764ba2;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        color: #328b8b;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 18px;
+    }
+    h2::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: linear-gradient(135deg, #328b8b 0%, #764ba2 100%);
+        margin-right: 12px;
+        border-radius: 2px;
+    }
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1c1c1c;
+        flex: 1;
+    }
+    .date {
+        font-size: 13px;
+        color: #888;
+        font-weight: 500;
+        white-space: nowrap;
+        margin-left: 15px;
+    }
+    .company-location {
+        font-size: 14px;
+        color: #328b8b;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+    p, li {
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 6px 0;
+        color: #444;
+    }
+    ul {
+        margin: 10px 0 20px 20px;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 5px;
+    }
+    li strong {
+        color: #1c1c1c;
+        font-weight: 600;
+    }
+    .section {
+        margin-bottom: 15px;
+    }
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    .skill-category {
+        display: inline-flex;
+        align-items: center;
+        background: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        border: 1.5px solid #e0e4f0;
+        gap: 8px;
+        transition: all 0.2s;
+    }
+    .skill-category:hover {
+        border-color: #328b8b;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+    }
+    .skill-category-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #328b8b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-right: 8px;
+        border-right: 1.5px solid #e0e4f0;
+    }
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        font-size: 12px;
+    }
+    .skills span, .hobbies span {
+        background: #f8f9fc;
+        color: #444;
+        padding: 3px 9px;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    .skills span:hover, .hobbies span:hover {
+        background: linear-gradient(135deg, #328b8b 0%, #764ba2 100%);
+        color: white;
+        transform: translateY(-1px);
+    }
+    .hobbies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    .education-item {
+        margin-bottom: 20px;
+    }
+
+
+
+    @media print {
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        body {
+            background: white;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            transform: scale(1);
+            transform-origin: top left;
+        }
+        
+        .container {
+            box-shadow: none;
+            padding: 0;
+            max-width: 100%;
+            margin: 0;
+            border-radius: 0;
+            width: 100%;
+        }
+        
+        .profile-image {
+            box-shadow: none;
+            width: 100px;
+            height: 100px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        h1 {
+            font-size: 32px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+        }
+        
+        .contact {
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-top: 18px;
+            margin-bottom: 12px;
+        }
+        
+        h2::before {
+            width: 3px;
+            height: 18px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        h3 {
+            font-size: 15px;
+        }
+        
+        .date, .company-location {
+            font-size: 12px;
+        }
+        
+        p, li {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .header-line, .header-dot {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .skill-category {
+            box-shadow: none;
+            padding: 4px 10px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .skill-category-title {
+            font-size: 12px;
+        }
+        
+        .skill-tags {
+            font-size: 11px;
+        }
+        
+        .skills span, .hobbies span {
+            font-size: 11px;
+            padding: 2px 7px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .skills span:hover, .hobbies span:hover {
+            transform: none;
+            background: #f8f9fc;
+            color: #444;
+        }
+        
+        a {
+            text-decoration: underline;
+        }
+        
+        /* Prevent page breaks in the middle of content */
+        .job-header, .education-item, .section {
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            page-break-after: avoid;
+        }
+        
+        ul {
+            margin: 8px 0 15px 20px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+        }
+        
+        /* Ensure all colors print */
+        * {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <h1>Reece Mitchell</h1>
+            <p class="tagline">Data & BI Engineer | MSc Computer Science</p>
+            <div class="contact">
+                <span class="contact-item">📧 Reecemitchell213@gmail.com</span>
+                <span class="contact-item">📱 07990 072531</span>
+                <span class="contact-item">📍 Manchester, UK</span>
+                <span class="contact-item">
+                    <a href="#" style="display: inline-flex; align-items: center; gap: 4px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </span>
+                <span class="contact-item">
+                    <a href="#" style="display: inline-flex; align-items: center; gap: 4px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <img src="file:///C:/Users/Reece/Documents/%23%20CVs/html_cv/cv.png" alt="Reece Mitchell" class="profile-image">
+        </div>
+    </div>
+
+    <!-- Separator -->
+    <div class="separator">
+        <div class="header-line"></div>
+        <div class="header-dot"></div>
+        <div class="header-line"></div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Experience</h2>
+        
+        <div class="job-header">
+            <h3>Data & BI Engineer</h3>
+            <span class="date">September 2023 - Present</span>
+        </div>
+        <p class="company-location">Carramore International Limited • Holmfirth, West Yorkshire / Remote</p>
+
+        <ul>
+            <li><strong>Built an internal BI portal using Python and FastAPI</strong> that delivers SQL-based reports and data visualisations across departments.</li>
+            <li><strong>Rebuilt daily stock valuation reports using SQL and Python,</strong> streamlining financial reporting processes and improving audit compliance.</li>
+            <li><strong>Automated legacy ERP workflows using Python, VBA, Bash, and PowerShell scripts,</strong> reducing manual work across multiple departments.</li>
+            <li><strong>Developed and maintained ETL processes</strong> connecting the ERP system with external platforms via Python, SQL, and REST/SOAP APIs.</li>
+            <li><strong>Provided technical support for Microsoft ecosystem tools,</strong> troubleshooting data and application issues organisation-wide.</li>
+        </ul>
+
+        <div class="job-header">
+            <h3>Quotation Administrator</h3>
+            <span class="date">March 2019 - September 2023</span>
+        </div>
+        <p class="company-location">Carramore International Limited • Holmfirth, West Yorkshire / Remote</p>
+        <ul>
+            <li>Managed end-to-end quotation process for international research projects, delivering tailored product solutions to meet customer needs.</li>
+            <li>Provided exceptional customer service and employed diplomatic problem-solving skills to resolve issues efficiently.</li>
+        </ul>
+
+        <div class="job-header">
+            <h3>Nutritional Analyst</h3>
+            <span class="date">September 2011 - August 2015</span>
+        </div>
+        <p class="company-location">Microsearch Laboratories • Halifax, West Yorkshire</p>
+        <ul>
+            <li>Conducted fatty acid composition analysis utilising gas chromatography, ensuring precision and accuracy in laboratory testing.</li>
+            <li>Developed advanced data handling and analytical skills through processing complex laboratory datasets.</li>
+            <li>Maintained rigorous organisational standards and quality control protocols throughout all analytical procedures.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <div class="job-header">
+                <h3>MSc Computer Science</h3>
+                <span class="date">January 2022 - January 2025</span>
+            </div>
+            <p class="company-location">University of Bath • Distance Learning • Merit (74.2%)</p>
+            <ul>
+                <li><strong>Key Projects:</strong> Hierarchical audio classification system, CNN-based facial age and gender prediction model, feedforward neural network implementation from scratch using NumPy</li>
+                <li><strong>Technical Skills:</strong> Python, Java, SQL, Haskell, C, machine learning, data structures, algorithms, software engineering</li>
+            </ul>
+        </div>
+
+        <div class="education-item">
+            <div class="job-header">
+                <h3>BSc (Hons) Human Biology</h3>
+                <span class="date">September 2015 - June 2018</span>
+            </div>
+            <p class="company-location">Loughborough University • First Class Honours (74.8%)</p>
+            <ul>
+                <li>Developed proficiency in statistical analysis and data visualisation for biological research, using SPSS and Excel.</li>
+                <li>Cultivated critical thinking, problem-solving, and presentation skills through research projects and academic coursework</li>
+                <li>Active member of the student road cycling club.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <p class="skill-category-title">Programming</p>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Java</span>
+                    <span>HTML/CSS</span>
+                    <span>Haskell</span>
+                    <span>C</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <p class="skill-category-title">Data & ML</p>
+                <div class="skill-tags">
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>TensorFlow</span>
+                    <span>Keras</span>
+                    <span>Scikit-learn</span>
+                    <span>Matplotlib</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <p class="skill-category-title">Frameworks & Tools</p>
+                <div class="skill-tags">
+                    <span>FastAPI</span>
+                    <span>PySide6</span>
+                    <span>SQL Server</span>
+                    <span>Excel</span>
+                    <span>Dynamics NAV</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <p class="skill-category-title">Automation</p>
+                <div class="skill-tags">
+                    <span>VBA</span>
+                    <span>PowerShell</span>
+                    <span>Bash</span>
+                    <span>AHK</span>
+                    <span>API Integration</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Interests</h2>
+        <div class="hobbies">
+            <span>🚴 Cycling</span>
+            <span>🧗 Bouldering</span>
+            <span>🎵 Music Technology</span>
+            <span>📚 Reading</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
