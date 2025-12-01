@@ -11,6 +11,11 @@
         padding: 0;
         box-sizing: border-box;
     }
+	
+	.cv-latest-link {
+			margin-top: 10px; /* adds vertical spacing */
+			font-size: 0.75em; /* slightly smaller than main text if needed */
+		}
 
     body {
         font-family: 'Inter', sans-serif;
@@ -381,6 +386,9 @@
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
+		
+		
+		
     }
 
 </style>
@@ -413,11 +421,20 @@
                     </a>
                 </span>
             </div>
+				<!-- Latest CV link -->
+			<div class="cv-latest-link">
+				The most recent version of this document is hosted on 
+				<a href="https://reece4000.github.io/" target="_blank">GitHub Pages</a>.
+			</div>
+
         </div>
 
         <div class="header-right">
             <img src="https://github.com/Reece4000.png" alt="Reece Mitchell" class="profile-image">
         </div>
+		
+		
+
     </div>
 
     <!-- Separator -->
@@ -562,3 +579,10 @@
 
 </body>
 </html>
+
+<script>
+    // Show only if NOT on your GitHub Pages domain
+    if (window.location.hostname !== "reece4000.github.io") {
+        document.getElementById("cv-latest-link").style.display = "block";
+    }
+</script>
