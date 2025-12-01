@@ -211,8 +211,20 @@
     .skill-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 4px;
-        font-size: 12px;
+        gap: 0.5rem;
+    }
+
+    .skill-tags span {
+        position: relative;
+        padding-right: 0.5rem;
+    }
+
+    .skill-tags span:not(:last-child)::after {
+        content: "|";
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #666;
     }
     .skills span, .hobbies span {
         background: #f8f9fc;
@@ -425,10 +437,10 @@
         <p class="company-location">Carramore International Limited • Holmfirth, West Yorkshire / Remote</p>
 
         <ul>
-            <li><strong>Built an internal BI portal using Python and FastAPI</strong> that delivers SQL-based reports and data visualisations across departments.</li>
-            <li><strong>Rebuilt daily stock valuation reports using SQL and Python,</strong> streamlining financial reporting processes and improving audit compliance.</li>
-            <li><strong>Automated legacy ERP workflows using Python, VBA, Bash, and PowerShell scripts,</strong> reducing manual work across multiple departments.</li>
-            <li><strong>Developed and maintained ETL processes</strong> connecting the ERP system with external platforms via Python, SQL, and REST/SOAP APIs.</li>
+            <li><strong>Built an internal BI portal using Python and FastAPI</strong> that delivers SQL-based reports and data visualisations to all departments.</li>
+            <li><strong>Rebuilt key valuation reports from scratch</strong>, yielding significant improvements in runtime performance and reporting accuracy.</li>
+            <li><strong>Automated legacy ERP workflows using various scripting technologies</strong>, reducing manual work across a variety of business processes.</li>
+            <li><strong>Developed and maintained ETL processes</strong> connecting the ERP system with external platforms via RESTful and SOAP APIs.</li>
             <li><strong>Provided technical support for Microsoft ecosystem tools,</strong> troubleshooting data and application issues organisation-wide.</li>
         </ul>
 
@@ -486,55 +498,61 @@
     <div class="section">
         <h2>Technical Skills</h2>
         <div class="skills-container">
+
             <div class="skill-category">
-                <p class="skill-category-title">Programming</p>
+                <p class="skill-category-title">Languages</p>
                 <div class="skill-tags">
                     <span>Python</span>
+                    <span>JavaScript</span>
                     <span>SQL</span>
-                    <span>Java</span>
                     <span>HTML/CSS</span>
-                    <span>Haskell</span>
-                    <span>C</span>
                 </div>
             </div>
+
             <div class="skill-category">
-                <p class="skill-category-title">Data & ML</p>
+                <p class="skill-category-title">Automation/Tooling</p>
+                <div class="skill-tags">
+                    <span>PySide6</span>
+                    <span>PowerShell</span>
+                    <span>Bash</span>
+                    <span>VBA</span>
+                    <span>AHK</span>
+                    <span>Git</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-title">Web/APIs</p>
+                <div class="skill-tags">
+                    <span>FastAPI</span>
+                    <span>REST</span>
+                    <span>SOAP</span>
+                    <span>Jinja2</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-title">Data/ML</p>
                 <div class="skill-tags">
                     <span>Pandas</span>
                     <span>NumPy</span>
+                    <span>sklearn</span>
                     <span>TensorFlow</span>
-                    <span>Keras</span>
-                    <span>Scikit-learn</span>
                     <span>Matplotlib</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <p class="skill-category-title">Frameworks & Tools</p>
-                <div class="skill-tags">
-                    <span>FastAPI</span>
-                    <span>PySide6</span>
                     <span>SQL Server</span>
-                    <span>Excel</span>
-                    <span>Dynamics NAV</span>
+                    <span>SSMS</span>
                 </div>
             </div>
-            <div class="skill-category">
-                <p class="skill-category-title">Automation</p>
-                <div class="skill-tags">
-                    <span>VBA</span>
-                    <span>PowerShell</span>
-                    <span>Bash</span>
-                    <span>AHK</span>
-                    <span>API Integration</span>
-                </div>
-            </div>
+
         </div>
     </div>
+
 
     <div class="section">
         <h2>Interests</h2>
         <div class="hobbies">
             <span>🚴 Cycling</span>
+            <span>🏃 Running</span>
             <span>🧗 Bouldering</span>
             <span>🎵 Music Technology</span>
             <span>📚 Reading</span>
