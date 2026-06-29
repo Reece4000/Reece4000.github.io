@@ -162,6 +162,23 @@
         margin-bottom: 10px;
         font-weight: 500;
     }
+    .company-location.with-logo {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .company-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .company-logo {
+        display: block;
+        width: auto;
+        height: 16px;
+        object-fit: contain;
+    }
     p, li {
         font-size: 14px;
         line-height: 1.7;
@@ -185,51 +202,75 @@
         margin-bottom: 15px;
     }
     .skills-container {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
         gap: 8px;
-        margin-top: 15px;
+        margin-top: 10px;
+        align-items: start;
     }
     .skill-category {
-        display: inline-flex;
-        align-items: center;
-        background: white;
-        padding: 6px 12px;
-        border-radius: 20px;
-        border: 1.5px solid #e0e4f0;
-        gap: 8px;
+        --skill-accent: #328b8b;
+        --skill-bg: #f7fbfb;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+        width: fit-content;
+        background: var(--skill-bg);
+        padding: 8px 9px;
+        border-radius: 6px;
+        border: 1px solid rgba(28, 28, 28, 0.12);
+        gap: 7px;
         transition: all 0.2s;
     }
+    .skill-category:nth-child(2) {
+        --skill-accent: #6f5fc7;
+        --skill-bg: #f8f7ff;
+    }
+    .skill-category:nth-child(3) {
+        --skill-accent: #2d79a8;
+        --skill-bg: #f5fafd;
+    }
+    .skill-category:nth-child(4) {
+        --skill-accent: #c17622;
+        --skill-bg: #fff9f2;
+    }
+    .skill-category:nth-child(5) {
+        --skill-accent: #5c7f31;
+        --skill-bg: #f7fbf2;
+    }
     .skill-category:hover {
-        border-color: #328b8b;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+        border-color: var(--skill-accent);
+        box-shadow: 0 2px 8px rgba(28, 28, 28, 0.12);
     }
     .skill-category-title {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 1.1;
+        margin: 0;
         font-weight: 600;
-        color: #328b8b;
+        color: var(--skill-accent);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        padding-right: 8px;
-        border-right: 1.5px solid #e0e4f0;
+        letter-spacing: 0.35px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid rgba(28, 28, 28, 0.12);
+        width: 100%;
+        white-space: nowrap;
     }
     .skill-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        align-items: center;
+        gap: 4px;
     }
 
     .skill-tags span {
-        position: relative;
-        padding-right: 0.5rem;
-    }
-
-    .skill-tags span:not(:last-child)::after {
-        content: "|";
-        position: absolute;
-        right: 0;
-        top: 0;
-        color: #666;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(28, 28, 28, 0.1);
+        border-radius: 5px;
+        padding: 2px 5px;
+        font-size: 12px;
+        line-height: 1.2;
+        color: #343a40;
     }
     .skills span, .hobbies span {
         background: #f8f9fc;
@@ -257,6 +298,23 @@
     }
     .education-item {
         margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 640px) {
+        body {
+            background: #ffffff;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            min-height: 100vh;
+            margin: 0;
+            padding: 18px;
+            border-radius: 0;
+            box-shadow: none;
+        }
     }
 
 
@@ -325,6 +383,11 @@
         .date, .company-location {
             font-size: 12px;
         }
+        .company-logo {
+            height: 13px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
         
         p, li {
             font-size: 12px;
@@ -338,7 +401,7 @@
         
         .skill-category {
             box-shadow: none;
-            padding: 4px 10px;
+            padding: 3px 8px;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
@@ -403,7 +466,7 @@
     <div class="header">
         <div class="header-left">
             <h1>Reece Mitchell</h1>
-            <p class="tagline">Data & BI Engineer | MSc Computer Science</p>
+            <p class="tagline">Data Engineer | MSc Computer Science</p>
             <div class="contact">
                 <span class="contact-item">📧 Reecemitchell213@gmail.com</span>
                 <span class="contact-item">📱 07990 072531</span>
@@ -450,10 +513,28 @@
 
     <div class="section">
         <h2>Professional Experience</h2>
+
+        <div class="job-header">
+            <h3>Data Engineer</h3>
+            <span class="date">March 2026 - Present</span>
+        </div>
+        <p class="company-location with-logo">
+            <a class="company-link" href="https://skyri.se/" target="_blank" rel="noopener noreferrer">
+                <img src="https://skyri.se/_next/image?q=75&amp;url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgmfkj88n%2Fproduction%2F31259a2ad3f22f994ea9ebf7f9d7dee1846ea454-183x45.png%3Fauto%3Dformat&amp;w=384" alt="Skyrise logo" class="company-logo">
+                <span>Skyrise Intelligence</span>
+            </a>
+            <span>• Manchester / Remote</span>
+        </p>
+        <ul>
+            <li><strong>Develop and maintain core internal reporting tools built with React and FastAPI</strong>, supporting operational reporting and data access across the business.</li>
+            <li><strong>Work daily across GCP, BigQuery, and Cloud Run</strong> to support analytics workflows, service deployments, and production reporting functionality.</li>
+            <li><strong>Build and operate ingestion jobs</strong> that integrate internal and external data sources into cloud-hosted reporting and analysis pipelines.</li>
+            <li><strong>Maintain CI/CD processes for reporting applications and cloud services</strong>, improving release consistency and deployment reliability.</li>
+        </ul>
         
         <div class="job-header">
             <h3>Data & BI Engineer</h3>
-            <span class="date">September 2023 - Present</span>
+            <span class="date">September 2023 - March 2026</span>
         </div>
         <p class="company-location">Carramore International Limited • Holmfirth, West Yorkshire / Remote</p>
 
@@ -521,47 +602,79 @@
         <div class="skills-container">
 
             <div class="skill-category">
-                <p class="skill-category-title">Languages</p>
+                <p class="skill-category-title">Frameworks</p>
                 <div class="skill-tags">
-                    <span>Python</span>
-                    <span>JavaScript</span>
-                    <span>SQL</span>
-                    <span>HTML/CSS</span>
+                    <span>Qt</span>
+                    <span>JUCE</span>
+                    <span>React</span>
+                    <span>Svelte</span>
+                    <span>FastAPI</span>
+                    <span>Pydantic</span>
+                    <span>Jinja2</span>
+                    <span>REST APIs</span>
+                    <span>SOAP APIs</span>
                 </div>
             </div>
 
             <div class="skill-category">
                 <p class="skill-category-title">Automation/Tooling</p>
                 <div class="skill-tags">
-                    <span>PySide6</span>
                     <span>PowerShell</span>
                     <span>Bash</span>
                     <span>VBA</span>
                     <span>AHK</span>
                     <span>Git</span>
+                    <span>GitHub Actions</span>
+                    <span>Docker</span>
+                    <span>CMake</span>
+                    <span>API Integration</span>
+                    <span>SSMS</span>
                 </div>
             </div>
 
             <div class="skill-category">
-                <p class="skill-category-title">Web/APIs</p>
+                <p class="skill-category-title">Cloud/Data</p>
                 <div class="skill-tags">
-                    <span>FastAPI</span>
-                    <span>REST</span>
-                    <span>SOAP</span>
-                    <span>Jinja2</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <p class="skill-category-title">Data/ML</p>
-                <div class="skill-tags">
+                    <span>GCP</span>
+                    <span>BigQuery</span>
+                    <span>Cloud Run</span>
+                    <span>Cloud Scheduler</span>
+                    <span>Cloud Logging</span>
+                    <span>IAM</span>
+                    <span>Service Accounts</span>
+                    <span>CI/CD</span>
                     <span>Pandas</span>
                     <span>NumPy</span>
-                    <span>sklearn</span>
-                    <span>TensorFlow</span>
-                    <span>Matplotlib</span>
-                    <span>SQL Server</span>
-                    <span>SSMS</span>
+                    <span>ETL/ELT</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-title">Languages</p>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>TypeScript</span>
+                    <span>SQL</span>
+                    <span>T-SQL</span>
+                    <span>C++</span>
+                    <span>QML</span>
+                    <span>HTML/CSS</span>
+                    <span>JSON</span>
+                    <span>XML</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <p class="skill-category-title">AI</p>
+                <div class="skill-tags">
+                    <span>LLM APIs</span>
+                    <span>RAG</span>
+                    <span>Tool Calling</span>
+                    <span>Agent Workflows</span>
+                    <span>Prompt Engineering</span>
+                    <span>Vector Search</span>
+                    <span>Embeddings</span>
+                    <span>Structured Outputs</span>
                 </div>
             </div>
 
@@ -578,8 +691,8 @@
             <span>🎵 Music Technology</span>
             <span>📚 Reading</span>
             <span>
-                🎹 <a href="https://idimide.github.io/IDIMide/" target="_blank" rel="noopener noreferrer">
-                    IDIMide
+                🎹 <a href="https://lodoseq.github.io/lodoseq-webpage/" target="_blank" rel="noopener noreferrer">
+                    Lodo
                 </a>
             </span>
         </div>
